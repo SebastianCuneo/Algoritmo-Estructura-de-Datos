@@ -1,5 +1,10 @@
 package Paquetito;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class ContadorPalabras {
 	
 	public int ContarPalabras(String frase, int xCaracteres) {
@@ -64,5 +69,34 @@ public class ContadorPalabras {
 		}else {
 			return false;
 		}
+	}
+
+	    // Retorna un vector de Strings con las líneas contenidas en el archivo y muestra la cantidad de líneas leídas.
+	    public String[] leerLineasArchivo(String path) {
+	        ArrayList<String> lineas = new ArrayList<>();
+	        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+	            String linea;
+	            while ((linea = br.readLine()) != null) {
+	                lineas.add(linea);
+	            }
+	        } catch (IOException e) {
+	            System.out.println("Error al leer el archivo: " + e.getMessage());
+	        }
+	        System.out.println("Cantidad de líneas leídas: " + lineas.size());
+	        return lineas.toArray(new String[lineas.size()]);
+	    }
+	    
+	    // Dado un vector de Strings con líneas de texto, retorna la cantidad total de palabras.
+	    public int contarPalabrasEnLineas(String[] lineas) {
+	        int totalPalabras = 0;
+	        for (String linea : lineas) {
+	            if (linea != null && !linea.trim().isEmpty()) {
+	                // Separa la línea en palabras usando espacios (uno o más)
+	                String[] palabras = linea.trim().split("\\s+");
+	                totalPalabras += palabras.length;
+	            }
+	        }
+	        return totalPalabras;
+	    
 	}
 }
