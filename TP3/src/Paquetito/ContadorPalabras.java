@@ -15,7 +15,8 @@ public class ContadorPalabras {
 		int palabrasLargas = 0;
 		int cantidadLetras = 0;
 		int largoPalabra = 0;
-			
+		
+		
 		if (frase.length() > 0 && frase.charAt(0) == ' ') {
 		    frase = frase.substring(1);
 		}
@@ -47,7 +48,7 @@ public class ContadorPalabras {
 				largoPalabra++;
 			}
 		}
-		// Evaluar última palabra (por si no terminó con espacio)
+		
 				if(largoPalabra > xCaracteres) {
 					palabrasLargas++;
 				}
