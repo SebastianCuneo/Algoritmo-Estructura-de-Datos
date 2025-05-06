@@ -10,10 +10,13 @@ public class Ejercicio2 {
 		int ParentesisCerrado = 0;
 		for (int i = 0; i < cadena.length(); i++) {
 			pila.push(cadena.charAt(i));
-			if(cadena.charAt(i) == '(') {
-				ParentesisAbierto++;
-			}else if(cadena.charAt(i) == ')'){
-				ParentesisCerrado++;
+			
+			for(int y = 0; y < pila.size(); y++) {
+				if(pila.get(y) == '(') {
+					ParentesisAbierto++;
+				}else if(pila.get(y) == ')') {
+					ParentesisCerrado++;
+				}
 			}
 		}
 		if (ParentesisAbierto == ParentesisCerrado) {
